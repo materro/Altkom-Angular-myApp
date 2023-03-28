@@ -1,11 +1,20 @@
 <h2>Lista produktów</h2>
+<!-- <ul>
+    <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
+        <span>{{i+1}}. {{ product }}</span>
+    </li> 
+</ul> -->
 <ul>
-    <li (click)="selectedProduct = 'Kurs Angular'">Angular</li>
-    <li (click)="selectedProduct = 'Kurs React'">React</li>
-    <li (click)="selectedProduct = 'Kurs C++'">C++</li>  
+    <li *ngFor="let product of products; trackBy: trackByProducts" (click)="selectedProduct = product">
+        <span>{{ product }}</span>
+    </li> 
 </ul>
 <app-product-detail
 #product 
+*ngIf="selectedProduct; else noProduct"
 [name]="selectedProduct" 
 (bought)="onBuy($event)"></app-product-detail>
 <!-- <br><span>{{ product.name }}</span> -->
+<ng-template #noProduct>
+    <p>Nie wybrano produktu</p>
+</ng-template>

@@ -1,5 +1,18 @@
-<h2>Szczegóły produktu</h2>
-<h3>{{ name }}</h3>
-<button (click)="buy()">KUP TERAZ!</button>
+<div *ngIf="name">
+    <!-- <div [hidden]="!name"> -->
+    <h2>Szczegóły produktu</h2>
+    <h3>{{ name }}</h3>
+    <div [ngSwitch]="name">
+        <p *ngSwitchCase="'Kurs Angular'">
+            Angular to framework JavaScript
+        </p>
+        <p *ngSwitchCase="'Kurs React'">
+            React to biblioteka JavaScript</p>
+        <p *ngSwitchDefault>
+            Brak danych o produkcie</p>
+    </div>
+
+    <button (click)="buy()">KUP TERAZ!</button>
+</div>
 <br>
-<span>{{ productName }}</span>
+<!-- <span>{{ productName }}</span> -->

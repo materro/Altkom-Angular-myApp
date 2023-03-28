@@ -11,6 +11,8 @@ export class ProductListComponent implements AfterViewInit {
   
   title = 'Products';
   selectedProduct = '';
+  products = ['Kurs Angular','Kurs React','Kurs C++'];
+
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
 
   ngAfterViewInit(): void {
@@ -22,5 +24,9 @@ export class ProductListComponent implements AfterViewInit {
 
   onBuy(name: string) {
     window.alert(`You bought the ${name} !`);
+  }
+
+  trackByProducts(index: number, name: string):string {
+    return name;
   }
 }
