@@ -3,7 +3,7 @@
 <h3>Stemplek czasowy: {{today | date: 'long'}}</h3>
 <h2>Lista produktów</h2>
 <ul>
-    <li *ngFor="let product of products | slice:0:3; let i=index" (click)="selectedProduct = product">
+    <li *ngFor="let product of (products$ | async) | slice:0:3; let i=index" (click)="selectedProduct = product">
         <!-- <span>{{i+1}}. {{ product.name | uppercase }}, cena: {{ product.price | currency:"PLN"}}</span> -->
         <app-product-view [id]="i"></app-product-view>
        
