@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from '../product';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
@@ -12,7 +12,7 @@ import { ProductsService } from '../products.service';
   providers: [
     { provide: ProductsService, useClass: ProductsService }]
 })
-export class ProductListComponent implements OnInit, AfterViewInit {
+export class ProductListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   title = 'Products';
   today = new Date();
