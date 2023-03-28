@@ -1,5 +1,7 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { formatCurrency } from '@angular/common';
+import { Component, Input, Output, LOCALE_ID,EventEmitter, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
 import { Product } from '../product';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -25,6 +27,8 @@ export class ProductDetailComponent implements OnChanges {
       console.log(`Name changed from ${oldValue} to ${newValue}`);
     }
   }
+
+
 
     @Input() product: Product | undefined;
     @Output() bought = new EventEmitter();

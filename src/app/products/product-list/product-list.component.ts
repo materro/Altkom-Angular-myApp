@@ -24,7 +24,25 @@ export class ProductListComponent implements AfterViewInit {
     {
       name:'Kurs HTML',
       price: 3000
+    },
+    {
+      name:'Kurs HTML2',
+      price: 3000
+    },
+    {
+      name:'Kurs HTML3',
+      price: 3000
+    },
+    {
+      name:'Kurs HTML4',
+      price: 3000
+    },
+    {
+      name:'Kurs HTML5',
+      price: 3000
     }
+
+
   ]; 
 
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
