@@ -5,3 +5,11 @@
     padding: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.valid{
+    border-bottom: solid 2px green;
+}
+
+.invalid{
+    border-bottom: solid 2px red;
+}
