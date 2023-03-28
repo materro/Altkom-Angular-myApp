@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
+import { SortPipe } from './sort.pipe';
+import { CopyrightDirective } from './copyright.directive';
 registerLocaleData(localePl);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SortPipe,
+    CopyrightDirective
   ],
   imports: [
     BrowserModule,

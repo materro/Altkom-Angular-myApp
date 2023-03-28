@@ -11,6 +11,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 export class ProductListComponent implements AfterViewInit {
   
   title = 'Products';
+  today = new Date();
   selectedProduct: Product | undefined;
   products: Product[] = [
     {

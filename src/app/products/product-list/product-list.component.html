@@ -1,6 +1,9 @@
+<h3>Dziś jest: {{today | date: 'fullDate'}}</h3>
+<h3>Mamy godzinę: {{today | date: 'shortTime'}}</h3>
+<h3>Stemplek czasowy: {{today | date: 'long'}}</h3>
 <h2>Lista produktów</h2>
 <ul>
-    <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
+    <li *ngFor="let product of products | slice:0:3; let i=index" (click)="selectedProduct = product">
         <span>{{i+1}}. {{ product.name | uppercase }}, cena: {{ product.price | currency:"PLN"}}</span>
        
     </li> 
