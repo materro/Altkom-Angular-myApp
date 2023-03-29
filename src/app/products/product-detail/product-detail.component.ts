@@ -1,6 +1,7 @@
-import { formatCurrency } from '@angular/common';
-import { Component, Input, Output, LOCALE_ID,EventEmitter, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from '../product';
+import { ProductsService } from '../products.service';
 
 
 @Component({
@@ -12,6 +13,13 @@ import { Product } from '../product';
 })
 export class ProductDetailComponent implements OnChanges {
 
+  @Input() id = -1;
+  product$: Observable<Product> | undefined;
+  @Input() product: Product | undefined;
+  @Output() bought = new EventEmitter();
+
+  constructor(private productsService: ProductsService) {}
+
   // constructor() {
   //   console.log(`Name is ${this.name} in the constructor`);
   // }
@@ -19,19 +27,10 @@ export class ProductDetailComponent implements OnChanges {
   //   console.log(`Name is ${this.name} in the ngOnInit`);
   // }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const product = changes['product'];
-    if (!product.isFirstChange()) {
-      const oldValue = product.previousValue.name;
-      const newValue = product.currentValue.name;
-      console.log(`Name changed from ${oldValue} to ${newValue}`);
-    }
+  ngOnChanges(): void {
+    this.product$ = this.productsService.getProduct(this.id);
+
   }
-
-
-
-    @Input() product: Product | undefined;
-    @Output() bought = new EventEmitter();
 
     buy() {
       this.bought.emit();
