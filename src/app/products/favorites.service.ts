@@ -7,9 +7,9 @@ import { ProductsService } from './products.service';
 })
 export class FavoritesService extends ProductsService {
 
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   // override getProducts(): Product[] {
   //   return super.getProducts().slice(1, 2);

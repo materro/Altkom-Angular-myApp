@@ -1,48 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, map} from 'rxjs';
 import { Product } from './product';
+import { HttpClient } from '@angular/common/http';
+
+interface ProductDTO {
+  title: string;
+  price: number;
+}
 
 @Injectable({
   providedIn: 'any'
 })
 export class ProductsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  private products = [
-      {
-        name: 'Kurs Angular',
-        price: 1000
-      },
-      {
-        name: 'Kurs React',
-        price: 2000
-      },
-      {
-        name: 'Kurs HTML',
-        price: 3000
-      },
-      {
-        name: 'Kurs HTML2',
-        price: 3000
-      },
-      {
-        name: 'Kurs HTML3',
-        price: 3000
-      },
-      {
-        name: 'Kurs HTML4',
-        price: 3000
-      },
-      {
-        name: 'Kurs HTML5',
-        price: 3000
-      }
+  private productsUrl = 'https://fakestoreapi.com/products';
 
-
-    ];
 
   getProducts(): Observable<Product[]> {
-    return of(this.products);
-  }
+    return this.http.get<ProductDTO[]>(this.productsUrl).pipe(
+      map(products => products.map(product => {
+        return {
+          name: product.title,
+          price: product.price
+        }}))
+        );
+      }
+ 
 }
