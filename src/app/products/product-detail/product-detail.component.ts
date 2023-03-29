@@ -29,7 +29,12 @@ export class ProductDetailComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.product$ = this.productsService.getProduct(this.id);
+  }
 
+  changePrice(product: Product,price: number) {
+    this.productsService.updateProduct(product.id, price).subscribe(() => {
+      alert(`${product.name} = Price changed to ${price}`);
+    });
   }
 
     buy() {

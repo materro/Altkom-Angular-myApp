@@ -11,6 +11,7 @@
         <p *ngSwitchDefault>
             Brak danych o produkcie</p>
     </div>
+<input (click)="changePrice(product, price.valueAsNumber)" type="button" value="Zmień cenę" />
 
     <button (click)="buy()">KUP TERAZ!</button>
 </div>
