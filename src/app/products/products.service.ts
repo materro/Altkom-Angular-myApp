@@ -16,6 +16,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
+
+
   private productsUrl = 'https://fakestoreapi.com/products';
 
   private convertToProduct(product: ProductDTO): Product {
@@ -25,6 +27,14 @@ export class ProductsService {
       price: product.price
     };
   }
+
+  addProduct(name: string, price: number): Observable<Product> {
+    return this.http.post<ProductDTO>(this.productsUrl, { 
+      title: name, 
+      price: price 
+    }).pipe(
+      map(product => this.convertToProduct(product))
+    );}
 
 
   getProducts(): Observable<Product[]> {

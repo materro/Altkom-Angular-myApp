@@ -5,6 +5,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { ProductCreateComponent } from './product-create/product-create.component';
 
 
 
@@ -13,7 +14,8 @@ import { ProductViewComponent } from './product-view/product-view.component';
     ProductListComponent,
     ProductDetailComponent,
     FavoritesComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ProductCreateComponent
   ],
   imports: [
     CommonModule,

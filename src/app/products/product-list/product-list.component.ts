@@ -6,7 +6,6 @@ import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-list',
-  // template: `<h1>{{title}}</h1>`,
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   providers: [
@@ -17,7 +16,7 @@ export class ProductListComponent implements OnInit, AfterViewInit, OnDestroy {
   title = 'Products';
   today = new Date();
   selectedProduct: Product | undefined;
-  products$: Observable<Product[]> | undefined;
+  products: Product[] = [];
   private productSub: Subscription | undefined;
 
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
@@ -47,7 +46,13 @@ export class ProductListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private getProducts() {
-    this.products$ = this.productService.getProducts();
-  }
+    this.productService.getProducts().subscribe(products => {
+    this.products = products;
+  });
+}
+
+onAdd(product: Product) {
+  this.products.push(product);
+}
 
 }
