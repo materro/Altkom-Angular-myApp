@@ -36,3 +36,7 @@ input {
   a:hover {
     opacity: 0.8;
   }
+
+  .active {
+    color: #1976d2;
+  }

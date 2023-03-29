@@ -9,8 +9,7 @@
     <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
         <!-- <span>{{i+1}}. {{ product.name | uppercase }}, cena: {{ product.price | currency:"PLN"}}</span> -->
         <!-- <app-product-view [id]="i"></app-product-view> -->
-        {{ product.name | uppercase }}
-       
+        <a [routerLink]="['/products', product.id]">{{ product.name }}</a>
     </li> 
 </ul>
 
