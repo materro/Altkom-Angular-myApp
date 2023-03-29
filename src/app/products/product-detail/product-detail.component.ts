@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
@@ -12,21 +13,32 @@ import { ProductsService } from '../products.service';
   changeDetection: ChangeDetectionStrategy.OnPush
   // encapsulation: ViewEncapsulation.None
 })
-export class ProductDetailComponent implements OnChanges {
+export class ProductDetailComponent implements OnChanges, OnInit {
 
   @Input() id = -1;
   product$: Observable<Product> | undefined;
   @Input() product: Product | undefined;
   @Output() bought = new EventEmitter();
 
-  constructor(private productsService: ProductsService, public authService: AuthService) {}
+  constructor(
+    private productsService: ProductsService, 
+    public authService: AuthService,
+    private route: ActivatedRoute) {}
+
+   
 
   // constructor() {
   //   console.log(`Name is ${this.name} in the constructor`);
   // }
-  // ngOnInit(): void {
-  //   console.log(`Name is ${this.name} in the ngOnInit`);
-  // }
+  
+  ngOnInit(): void {
+ const id = this.route.snapshot.params['id'];
+ this.product$ = this.productsService.getProduct(id);
+// this.route.queryParamMap.subscribe(params => {
+//   console.log(params.get('sortOrder'));
+//   });
+}
+
 
   ngOnChanges(): void {
     this.product$ = this.productsService.getProduct(this.id);
