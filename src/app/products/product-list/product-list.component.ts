@@ -51,6 +51,16 @@ export class ProductListComponent implements OnInit, AfterViewInit, OnDestroy {
   });
 }
 
+// private getProducts(): Observable<Product[]> {
+//   const options = {
+//     headers: { new HttpHeaders({ Autorizaton: 'myAuthToken' }) 
+//   };
+//   return this.http.get<Product[]>(this.url, options).pipe(
+//   map(products => products.map(product => ({ ...product, price: product.price * 1.5 }))),
+// });
+// }
+
+
 onAdd(product: Product) {
   this.products.push(product);
 }

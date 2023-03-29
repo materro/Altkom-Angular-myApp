@@ -11,9 +11,10 @@
         <p *ngSwitchDefault>
             Brak danych o produkcie</p>
     </div>
-<input (click)="changePrice(product, price.valueAsNumber)" type="button" value="Zmień cenę" />
+    <input placeholder="Wpisz nową cenę" #price />
+<button (click)="changePrice(product, price.valueAsNumber)">Zmień</button>
 
-    <button (click)="buy()">KUP TERAZ!</button>
+    <button *ngIf="authService.isLoggedIn" (click)="buy()">KUP TERAZ!</button>
 </div>
 
 <br>

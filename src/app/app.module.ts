@@ -8,6 +8,7 @@ import localePl from '@angular/common/locales/pl';
 import { SortPipe } from './sort.pipe';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
+import { AuthModule } from './auth/auth.module';
 registerLocaleData(localePl);
 
 @NgModule({
@@ -20,7 +21,8 @@ registerLocaleData(localePl);
   imports: [
     BrowserModule,
     ProductsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [{
     provide: LOCALE_ID,

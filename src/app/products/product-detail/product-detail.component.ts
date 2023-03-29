@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 
@@ -18,7 +19,7 @@ export class ProductDetailComponent implements OnChanges {
   @Input() product: Product | undefined;
   @Output() bought = new EventEmitter();
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService, public authService: AuthService) {}
 
   // constructor() {
   //   console.log(`Name is ${this.name} in the constructor`);
@@ -33,7 +34,7 @@ export class ProductDetailComponent implements OnChanges {
 
   changePrice(product: Product,price: number) {
     this.productsService.updateProduct(product.id, price).subscribe(() => {
-      alert(`${product.name} = Price changed to ${price}`);
+      alert(`${product.name} = Price changed`);
     });
   }
 
