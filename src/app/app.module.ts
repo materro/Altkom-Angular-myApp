@@ -14,6 +14,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { authGuard } from './auth/auth.guard';
+import { FormsModule } from '@angular/forms';
 registerLocaleData(localePl);
 
 
@@ -37,6 +38,7 @@ const routes = [
     ProductsModule,
     HttpClientModule,
     AuthModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{

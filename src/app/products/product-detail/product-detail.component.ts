@@ -10,7 +10,7 @@ import { ProductsService } from '../products.service';
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
   // encapsulation: ViewEncapsulation.None
 })
 export class ProductDetailComponent implements OnChanges, OnInit {
@@ -19,6 +19,7 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   product$: Observable<Product> | undefined;
   @Input() product: Product | undefined;
   @Output() bought = new EventEmitter();
+  price: number | undefined;
 
   constructor(
     private productsService: ProductsService, 
