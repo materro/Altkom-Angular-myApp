@@ -11,7 +11,7 @@
         <p *ngSwitchDefault>
             Brak danych o produkcie</p>
     </div>
-    <form (ngSubmit)="changePrice(product, product.price!)">
+    <form (ngSubmit)="changePrice(product, product.price)">
     <input placeholder="Wpisz nową cenę" name="price" [(ngModel)]="product.price" />
     <button type="submit">Zmień</button>
     </form>

@@ -1,11 +1,26 @@
+<form [formGroup]="productForm" (ngSubmit)="createProduct()">
 <div>
     <label for="name">Nazwa produktu</label>
-    <input id="name" #name />
+    <input id="name" formControlName="name" required />
+    <span *ngIf="name.touched && name.invalid">Nazwa jest wymagana</span>
 </div>
 <div>
     <label for="price">Cena</label>
-    <input id="price" #price />
+    <input id="price" formControlName="price" required />
+    <span *ngIf="name.touched && name.invalid">Cena jest wymagana</span>
 </div>
 <div>
-    <button (click)="createProduct(name.value, price.valueAsNumber)">Dodaj produkt</button>
+    <label for="category">Kategoria</label>
+    <input id="category" formControlName="category" />
 </div>
+<div>
+    <label for="description">Opis</label>
+    <input id="description" formControlName="description" />
+</div>
+<div>
+    <label for="image">Zdjęcie</label>
+    <input id="image" formControlName="image" />
+</div>
+<button type="submit" [disabled]="!productForm.valid">Dodaj</button>
+<!-- <button type="submit">Dodaj</button> -->
+</form>
