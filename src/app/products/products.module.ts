@@ -6,6 +6,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { ProductsRoutingModule } from './products-routing.module';
 
 
 
@@ -19,7 +20,8 @@ import { ProductCreateComponent } from './product-create/product-create.componen
   ],
   imports: [
     CommonModule,
-    ProductComponent
+    ProductComponent,
+    ProductsRoutingModule
   ],
   exports: [ProductListComponent]
 })

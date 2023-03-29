@@ -9,20 +9,34 @@ import { SortPipe } from './sort.pipe';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
 import { AuthModule } from './auth/auth.module';
+import { RouterModule } from '@angular/router';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 registerLocaleData(localePl);
+
+
+const routes = [
+  { path: 'products', component: ProductListComponent },
+  { path: 'cart', component: CartComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SortPipe,
     CopyrightDirective,
-    NumericDirective
+    NumericDirective,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     ProductsModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [{
     provide: LOCALE_ID,
