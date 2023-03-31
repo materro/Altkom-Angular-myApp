@@ -16,7 +16,10 @@
     <button type="submit">Zmień</button>
     </form>
 
-    <button *ngIf="authService.isLoggedIn" (click)="buy()">KUP TERAZ!</button>
+    <div *ngIf="authService.isLoggedIn">
+        <button (click)="buy()">KUP TERAZ!</button>
+        <app-product-delete [productId]="product.id"></app-product-delete>
+    </div>
 </div>
 
 <br>
