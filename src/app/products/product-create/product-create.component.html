@@ -9,6 +9,7 @@
     <input id="price" formControlName="price" required />
     <span *ngIf="name.touched && name.invalid">Cena jest wymagana</span>
 </div>
+<div formGroupName="info">
 <div>
     <label for="category">Kategoria</label>
     <input id="category" formControlName="category" />
@@ -20,6 +21,7 @@
 <div>
     <label for="image">Zdjęcie</label>
     <input id="image" formControlName="image" />
+</div>
 </div>
 <button type="submit" [disabled]="!productForm.valid">Dodaj</button>
 <!-- <button type="submit">Dodaj</button> -->
