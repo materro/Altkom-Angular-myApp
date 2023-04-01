@@ -17,8 +17,8 @@
     </form>
 
     <div *ngIf="authService.isLoggedIn">
-        <button (click)="buy()">KUP TERAZ!</button>
-        <button (click)="deleteProduct(product.id)">Usuń</button>
+        <button pButton class="p-button p-button-success p-button-rounded" (click)="buy()">KUP TERAZ!</button>
+        <button pButton class="p-button p-button-danger p-button-rounded" (click)="deleteProduct(product.id)">Usuń</button>
     </div>
 </div>
 <div *ngIf="productDeleted">

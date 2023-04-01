@@ -4,7 +4,7 @@ import { Observable, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
-
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-product-detail',
