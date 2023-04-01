@@ -8,9 +8,6 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductDeleteComponent } from './product-delete/product-delete.component';
-
-
 
 @NgModule({
   declarations: [
@@ -19,15 +16,14 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
     FavoritesComponent,
     ProductViewComponent,
     ProductCreateComponent,
-    ProductDeleteComponent
   ],
   imports: [
     CommonModule,
     ProductComponent,
     ProductsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports: [ProductListComponent]
+  exports: [ProductListComponent],
 })
-export class ProductsModule { }
+export class ProductsModule {}

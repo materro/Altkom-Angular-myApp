@@ -53,4 +53,8 @@ export class ProductsService {
     updateProduct(id: number, price: number): Observable<void> {
       return this.http.patch<void>(`${this.productsUrl}/${id}`, { price });
     }
+
+    deleteProduct(id: number): Observable<void> {
+      return this.http.delete<void>(`${this.productsUrl}/${id}`);
+    }
 }

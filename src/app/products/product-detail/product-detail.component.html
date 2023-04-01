@@ -1,4 +1,4 @@
-<div *ngIf="product$ | async as product">
+<div *ngIf="!productDeleted && (product$ | async) as product">
     <h2>Szczegóły produktu</h2>
     <h3>{{ product.name }}</h3>
     <span>{{ product.price | currency }}</span>
@@ -18,10 +18,12 @@
 
     <div *ngIf="authService.isLoggedIn">
         <button (click)="buy()">KUP TERAZ!</button>
-        <app-product-delete [productId]="product.id"></app-product-delete>
+        <button (click)="deleteProduct(product.id)">Usuń</button>
     </div>
 </div>
-
+<div *ngIf="productDeleted">
+    Wykasowano 🔥
+</div>
 <br>
 <!-- <p>{{ product | json }}</p> -->
 <!-- <span>{{ productName }}</span> -->

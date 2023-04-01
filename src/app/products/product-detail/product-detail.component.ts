@@ -20,6 +20,7 @@ export class ProductDetailComponent implements OnChanges, OnInit {
   @Input() product: Product | undefined;
   @Output() bought = new EventEmitter();
   price: number | undefined;
+  productDeleted = false;
 
   constructor(
     private productsService: ProductsService, 
@@ -53,6 +54,16 @@ export class ProductDetailComponent implements OnChanges, OnInit {
 
     buy() {
       this.bought.emit();
+    }
+
+    deleteProduct(productId: number): void {
+      this.productsService.deleteProduct(productId).subscribe({
+        error: (e) => alert(`Product ${productId} cannot be deleted: ${e}`),
+        complete: () => {
+          this.productDeleted = true;
+          console.info(`Product ${productId} successfully deleted`)
+        },
+      });
     }
 
   // get productName(): string {
